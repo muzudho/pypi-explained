@@ -165,7 +165,7 @@ py -m build
 # 第４章：アップロード
 
 
-### 第１２項：書式チェック
+## 第８節：書式チェック
 
 👇　書式チェック。圧縮ファイルに対して行う  
 
@@ -177,7 +177,7 @@ twine check dist/*
     * 📖 [Writing your pyproject.toml](https://packaging.python.org/en/latest/guides/writing-pyproject-toml/)
 
 
-### 第１３項：twine実行
+## 第９節：twine実行
 
 twine を実行する前に、 📄 `pyproject.toml` のバージョンの数を設定（２回目以降なら上げる）しておくこと  
 
@@ -193,9 +193,9 @@ py -m twine upload --repository testpypi dist/*
 APIトークンを尋ねられるので、 `pypi-` プレフィックスを付けたまま入力する  
 
 
-## 第５章：アップロードされたものを確認しにいく
+# 第５章：アップロードされたものを確認しにいく
 
-### 第１４項：［test.pypi.org］にログイン
+## 第１０節：［test.pypi.org］にログイン
 
 👇 アップロードされたら、test.pypi.org を見に行く  
 
@@ -207,7 +207,23 @@ https://test.pypi.org/account/login/
 スコープは `アカウント全体` を選ぶ。発行されたAPIトークンは再発行されないので、どこかに記憶しておく  
 
 
-## 第６節：参考記事
+# 第６章：［pypi.org］へのデプロイについて
+
+test.pypi.org と pypi.org は別アカウントなので、ログインし直す。  
+
+https://pypi.org/account/login/
+
+
+アカウント設定画面から、APIトークンも発行する  
+
+`twine` のコマンド引数が変わる  
+
+```shell
+twine upload dist/*
+```
+
+
+# 第７章：参考記事
 
 * デプロイのために
     * 📖 [【Python】PyPIに自作ライブラリを登録する](https://qiita.com/gsy0911/items/702f43100e5abdefd318)
