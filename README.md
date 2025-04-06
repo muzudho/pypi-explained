@@ -112,10 +112,10 @@ pip freeze > requirements.txt
 👇　１例として、ディレクトリー階層は以下のようにする。  
 
 ```plaintext
-📁 {REPOSITORY_NAME}/    # GitHub のリポジトリー名に対応。詳しくはソースコードの現物参照
+📁 {REPOSITORY_NAME}/    # GitHub のリポジトリー名に対応。詳しくはソースコードの現物参照。
 ├─ 📄 src/
-│   └─ 📄 {PACKATE_NAME}/    # Python パッケージ名に対応。詳しくはソースコードの現物参照
-│      ├─ 📄 __init__.py
+│   └─ 📄 {PACKATE_NAME}/   # Python パッケージ名に対応。詳しくはソースコードの現物参照。
+│      ├─ 📄 __init__.py    # ビルドツールが深いフォルダーにPythonスクリプトが入っていることを知るために、浅いフォルダーに __init__.py ファイルは必要です。
 │      └─ others...
 └─ 📄 pyproject.toml
 ```
