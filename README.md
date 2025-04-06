@@ -99,9 +99,31 @@ pip freeze > requirements.txt
 * 例： 📖 [exshell](https://github.com/muzudho/exshell)
 
 
-## 第５節：ローカルＰＣ　＞　📄［`pyproject.toml`］ファイルを書く
+## 第５節：ローカルＰＣ　＞　自作プロジェクトの構成
 
-これから説明していきます。  
+### 第９項：　README.md について
+
+トップ・ディレクトリーの 📄 `README.md` テキストは pypi.org のパッケージのページの README としても使われるので、それを想定して書くこと。  
+画像は相対パスではなくURLを指定すること。  
+
+
+### 第１０項：　ディレクトリー階層の例
+
+👇　１例として、ディレクトリー階層は以下のようにする。  
+
+```plaintext
+📁 {REPOSITORY_NAME}/    # GitHub のリポジトリー名に対応。詳しくはソースコードの現物参照
+├─ 📄 src/
+│   └─ 📄 {PACKATE_NAME}/    # Python パッケージ名に対応。詳しくはソースコードの現物参照
+│      ├─ 📄 __init__.py
+│      └─ others...
+└─ 📄 pyproject.toml
+```
+
+
+## 第１１節：ローカルＰＣ　＞　📄［`pyproject.toml`］ファイルを書く
+
+以下のリンクを参考に、📄［`pyproject.toml`］ファイルを書いてください。本書では省略します。  
 
 * 詳しくは：
     * 📖 [pyproject.toml を書く](https://packaging.python.org/ja/latest/guides/writing-pyproject-toml/)
