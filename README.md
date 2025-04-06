@@ -41,7 +41,7 @@ build パッケージは、pypi にアップロードできる形式にファイ
 py -m pip install --upgrade build
 ```
 
-// あとで、📄 `pyproject.toml` ファイルでこのビルドツールを指定します。  
+// TODO あとで、📄 `pyproject.toml` ファイルでこのビルドツールを指定します。  
 
 
 ### 第３項：　twine パッケージ
@@ -83,8 +83,12 @@ pip install -U packaging
 👇  自作プロジェクトをパッケージ化するためにインストールしておく必要があるパッケージを一覧する方法はありませんが、以下のコマンドを使うと、環境にインストールしたパッケージが一覧できます。自作パッケージに関係のないパッケージ名も出てくるので、手動で選別してください。  
 
 ```shell
-pip freeze
+pip freeze > requirements.txt
 ```
+
+* 詳しくは：📖 [How to install Python packages with pip and requirements.txt](https://note.nkmk.me/en/python-pip-install-requirements/)
+
+// TODO 後述の　📄［`pyproject.toml`］ファイルの dependencies の項目に移した方がいいか？
 
 
 ### 第８項：既存の📄［pyproject.toml］ファイルをコピーして持ってくる
@@ -93,3 +97,12 @@ pip freeze
 
 * 例： 📖 [pyxltree](https://github.com/muzudho/pyxltree)
 * 例： 📖 [exshell](https://github.com/muzudho/exshell)
+
+
+## 第５節：ローカルＰＣ　＞　📄［`pyproject.toml`］ファイルを書く
+
+これから説明していきます。  
+
+* 詳しくは：
+    * 📖 [pyproject.toml を書く](https://packaging.python.org/ja/latest/guides/writing-pyproject-toml/)
+    * 📖 [【GitHub Actions】自作Pythonパッケージを自動ビルドしてPyPIとGitHubリリースまで一気にデプロイする](https://qiita.com/hanaosan/items/83194c4cd6c80fc3c377)
