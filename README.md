@@ -15,7 +15,7 @@ PyPI を説明。
 * 📖 [Packaging Python Projects](https://packaging.python.org/en/latest/tutorials/packaging-projects/)
 
 
-# 第２章：事前準備
+# 第２章：build前準備
 
 ## 第２節：［test.pypi.org］、［pypi.org］のアカウント準備
 
@@ -121,10 +121,95 @@ pip freeze > requirements.txt
 ```
 
 
-## 第１１節：ローカルＰＣ　＞　📄［`pyproject.toml`］ファイルを書く
+### 第１１項：ローカルＰＣ　＞　📄［`pyproject.toml`］ファイルを書きあげる
 
-以下のリンクを参考に、📄［`pyproject.toml`］ファイルを書いてください。本書では省略します。  
+以下のリンクを参考に、📄［`pyproject.toml`］ファイルを書きあげてください。本書では省略します。  
 
 * 詳しくは：
     * 📖 [pyproject.toml を書く](https://packaging.python.org/ja/latest/guides/writing-pyproject-toml/)
+    * 📖 [【GitHub Actions】自作Pythonパッケージを自動ビルドしてPyPIとGitHubリリースまで一気にデプロイする](https://qiita.com/hanaosan/items/83194c4cd6c80fc3c377)
+
+
+# 第３章：buildについて
+
+## 第６節：　再確認
+
+`build` を**実行する前**に:  
+
+* 📄 `pyproject.toml` のバージョンを設定したか確認しておくこと
+* デプロイしたいファイルで、GitHub にプッシュし忘れているファイルが残っていれば、プッシュしてください
+* ファイルの保存のし忘れがあれば、ファイルの保存をしてください
+
+
+## 第７節：　build実行
+
+👇 pyproject.toml を書き上げたら、 `build` を実行する。  
+
+```shell
+py -m build
+```
+
+`build` を実行すると、 `dist` フォルダーが作成される。  
+
+例：  
+
+```plaintext
+📁 dist/
+├─ 📄 {PACKATE_NAME}-0.0.1-py2.py3-none-any.whl     # Python パッケージ名に対応。詳しくはソースコードの現物参照
+└─ 📄 {PACKATE_NAME}-0.0.1.tar.gz
+```
+
+これが pypi にアップロードするファイルだ。  
+
+
+# 第４章：アップロード
+
+
+### 第１２項：書式チェック
+
+👇　書式チェック。圧縮ファイルに対して行う  
+
+```shell
+twine check dist/*
+```
+
+* エラーがでたら、書式を確認する。
+    * 📖 [Writing your pyproject.toml](https://packaging.python.org/en/latest/guides/writing-pyproject-toml/)
+
+
+### 第１３項：twine実行
+
+twine を実行する前に、 📄 `pyproject.toml` のバージョンの数を設定（２回目以降なら上げる）しておくこと  
+
+👇 twine を実行する  
+
+```shell
+py -m twine upload --repository testpypi dist/*
+
+# 細かいログが見たいとき
+#py -m twine upload --repository testpypi --verbose dist/*
+```
+
+APIトークンを尋ねられるので、 `pypi-` プレフィックスを付けたまま入力する  
+
+
+## 第５章：アップロードされたものを確認しにいく
+
+### 第１４項：［test.pypi.org］にログイン
+
+👇 アップロードされたら、test.pypi.org を見に行く  
+
+[test.pypi.org](https://test.pypi.org/) に Fire Fox でログインする（Google Chrome や Edge では二要素認証が通らないことがあった）  
+
+https://test.pypi.org/account/login/
+
+**test.pypi.org の［アカウント設定］の［API トークン］の欄から、［APIトークンの追加］ボタンをクリックする。**  
+スコープは `アカウント全体` を選ぶ。発行されたAPIトークンは再発行されないので、どこかに記憶しておく  
+
+
+## 第６節：参考記事
+
+* デプロイのために
+    * 📖 [【Python】PyPIに自作ライブラリを登録する](https://qiita.com/gsy0911/items/702f43100e5abdefd318)
+        * 📖 [PyPIパッケージ定義ファイル作成方法 - __init__.py setup.py MANIFEST.in の書き方](https://qiita.com/shinichi-takii/items/6d1063e0aa3f79e599f0)
     * 📖 [【GitHub Actions】自作Pythonパッケージを自動ビルドしてPyPIとGitHubリリースまで一気にデプロイする](https://qiita.com/hanaosan/items/83194c4cd6c80fc3c377)
