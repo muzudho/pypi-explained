@@ -68,3 +68,28 @@ pip install --upgrade pkginfo
 pip install -U packaging
 ```
 
+
+## 第４節：ローカルＰＣ　＞　📄［pyproject.toml］ファイルの記述
+
+### 第６項：どのビルドツールを使うか決める
+
+本書では、ビルドツールに Hatchling を使います。  
+
+* Hatchling について詳しく知りたい場合： 📖 [Hatchling > Build system](https://hatch.pypa.io/latest/config/build/#build-system)
+
+
+### 第７項：自作パッケージで使用しているパッケージを調べる
+
+👇  自作プロジェクトをパッケージ化するためにインストールしておく必要があるパッケージを一覧する方法はありませんが、以下のコマンドを使うと、環境にインストールしたパッケージが一覧できます。自作パッケージに関係のないパッケージ名も出てくるので、手動で選別してください。  
+
+```shell
+pip freeze
+```
+
+
+### 第８項：既存の📄［pyproject.toml］ファイルをコピーして持ってくる
+
+📄 `pyproject.toml` ファイルを一から書くのは大変なので、既存のものをコピーして、書き替えていくことにします。だいたい、プロジェクト・ルートに置いてあります。  
+
+* 例： 📖 [pyxltree](https://github.com/muzudho/pyxltree)
+* 例： 📖 [exshell](https://github.com/muzudho/exshell)
