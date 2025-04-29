@@ -28,6 +28,8 @@ PyPI を説明。
 
 ### 第１項：pip パッケージ更新
 
+* Power Shell ではなく、Command Prompt を使ってください。
+
 ```shell
 py -m pip install --upgrade pip
 ```
